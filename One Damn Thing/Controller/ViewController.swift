@@ -29,9 +29,19 @@ class ViewController: UIViewController {
     }
     
     func updateUI() -> Void {
-        storyLabel.text = storyBrain.stories[storyBrain.currentStory].title;
-        choice1Button.setTitle(storyBrain.stories[storyBrain.currentStory].choice1, for: .normal);
-        choice2Button.setTitle(storyBrain.stories[storyBrain.currentStory].choice2, for: .normal);
+        if (storyBrain.currentStory < 1000) {
+            storyLabel.text = storyBrain.stories[storyBrain.currentStory].title;
+            choice1Button.setTitle(storyBrain.stories[storyBrain.currentStory].choice1, for: .normal);
+            choice2Button.setTitle(storyBrain.stories[storyBrain.currentStory].choice2, for: .normal);
+        } else {
+            storyLabel.text = storyBrain.closer;
+            choice1Button.setTitle("", for: .normal);
+            choice1Button.alpha = 0.0;
+            choice2Button.setTitle("", for: .normal);
+            choice2Button.alpha = 0.0;
+            
+            
+        }
     }
     
 }
